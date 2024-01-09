@@ -3,8 +3,8 @@ const EMPTY_HEART = '♡';
 const FULL_HEART = '♥';
 
 // Your JavaScript code goes here!
+let modal = document.querySelector('.hidden');
 const likeBtns = document.querySelectorAll('.like');
-const errorModal = document.getElementById('modal');
 const modalMessage = document.getElementById('modal-message');
 likeBtns.forEach((likeBtn) => {
   likeBtn.addEventListener('click', () => {
@@ -23,12 +23,12 @@ likeBtns.forEach((likeBtn) => {
 
       .catch((err) => {
         console.error('Error:', err);
-        errorModal.classList.remove('hidden');
+        modal.classList.remove('hidden');
         likeBtn.classList.remove('activated-heart');
 
         modalMessage.innerText = err;
         setTimeout(() => {
-          errorModal.classList.add('hidden');
+          modal.classList.add('hidden');
         }, 3000);
       });
   });
